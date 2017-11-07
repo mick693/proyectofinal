@@ -25,7 +25,7 @@ SECRET_KEY = 'u8mm&qsu)bg$83fftbh_1epjo$ae9z-$i&l5j^&^5qbhx*bkw+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','miguelcoyoy.pythonanywhere.com']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'cajadiaria',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
