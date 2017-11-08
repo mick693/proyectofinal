@@ -3,6 +3,8 @@
 {% block content %}
     <div class="post">
        <div class="date">
+        <a class="btn btn-default" href="{% url 'cuenta_edita' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'cuenta_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         </div>
         <table border="", cellspacing="200">
           <tr>
@@ -10,7 +12,7 @@
             <th scope="col"><strong>Cuenta    </strong></th>
             <th scope="col"><strong>Descripción     </strong></th>
             <th scope="col"><strong>Monto     </strong></th>
-            
+
           </tr>
           <hr>
           <tr>

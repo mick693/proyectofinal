@@ -24,7 +24,26 @@ def cuenta_nueva(request):
                 cajadiaria=CajaDiaria(tipocuenta_id=tipocuenta_id,cuenta_id=cuenta.id)
                 cajadiaria.save()
                 return redirect('detallecaja',pk=cajadiaria.pk)
-
     else:
-        formulario=CuentaForm();
+        formulario=CuentaForm()
     return render(request,'cajadiaria/cuenta_editar.html',{'formulario':formulario})
+
+def cuenta_edita(request,pk):
+    cajadiaria=get_object_or_404(Cuenta,pk=pk)
+    if request.method == "POST":
+        formulario=CuentaForm(request.POST,instance=cajadiaria)
+        if formulario.is_valid():
+            cuenta=Cuenta.objects.create(nombre=formulario.cleaned_data['nombre'],fecha=formulario.cleaned_data['fecha'],descripcion=formulario.cleaned_data['descripcion'],monto=formulario.cleaned_data['monto'])
+            for tipocuenta_id in request.POST.getlist('cajas'):
+                cajadiaria=CajaDiaria(tipocuenta_id=tipocuenta_id,cuenta_id=cuenta.id)
+                cajadiaria.save()
+                return redirect('detallecaja',pk=cajadiaria.pk)
+    else:
+        formulario=CuentaForm()
+    return render(request,'cajadiaria/cuenta_editar.html',{'formulario':formulario})
+
+def cuenta_remove(request, pk):
+    post = get_object_or_404(Cuenta, pk=pk)
+    post.delete()
+    cuenta=Cuenta.objects.all()
+    return render(request,'cajadiaria/post_list.html',{'cuenta':cuenta})
