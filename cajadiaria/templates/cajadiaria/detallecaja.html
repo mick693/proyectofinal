@@ -1,0 +1,25 @@
+{% extends 'cajadiaria/base.html' %}
+
+{% block content %}
+    <div class="post">
+       <div class="date">
+        </div>
+        <table border="", cellspacing="200">
+          <tr>
+            <th scope="col"><strong>Fecha   </strong></th>
+            <th scope="col"><strong>Cuenta    </strong></th>
+            <th scope="col"><strong>Descripción     </strong></th>
+            <th scope="col"><strong>Monto     </strong></th>
+            <th scope="col"><strong>Debe/Haber     </strong></th>
+          </tr>
+          <hr>
+          <tr>
+            <td>{{ post.fecha }}</td>
+            <td>{{ post.nombre }}</td>
+            <td>{{ post.descripcion }}</td>
+            <td>{{ post.monto }}</td>
+            <td>{{ post.cajas }}</td>
+          </tr>
+      </table>
+    </div>
+{% endblock %}

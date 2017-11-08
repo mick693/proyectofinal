@@ -1,14 +1,29 @@
-<div class="page-header">
-               <h1><a href="/">Caja Diaria</a></h1>
+{%load staticfiles%}
+<html>
 
-               {% if messages %}
-                <ul class="messages">
-                    {% for message in messages %}
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
- </div>
-
-{% block content %}
-{% endblock %}
+    <head>
+        <title>Caja Diaria Control</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/cuentas.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+      <div class="page-header">
+        <h1><a href="/">Caja Diaria</a></h1>
+        {% if user.is_authenticated %}
+            <small>
+            <a href="{% url 'cuenta_nueva' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <p class="top-menu">Bienvenido {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
+            {% else %}
+            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+          </small>
+      {% endif %}
+      <hr>
+    </div class="post">
+    <div>
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>

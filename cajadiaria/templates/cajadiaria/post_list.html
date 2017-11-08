@@ -1,18 +1,9 @@
-<html>
-    <head>
-        <title>Caja Diaria Proyecto Final</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">LIBRO CAJA DIARIA</a></h1>
-        </div>
-        
-        <div>
-
-        </div>
-
-        <div>
-
-        </div>
-    </body>
-</html>
+{% extends 'cajadiaria/base.html' %}
+{%block content%}
+{% for cuenta in cuenta%}
+  <div class="post">
+  <h1><a href="{% url 'detallecaja' pk=cuenta.pk%}">{{cuenta.fecha}} </a></h1>
+  <p>{{p.descripcion|linebreaksbr}}</p>
+  {% endfor%}
+  </div>
+{%endblock content%}
