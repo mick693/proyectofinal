@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns=[
     url(r'^$',views.post_list),
-    #url(r'^nuevacuenta/$',views.cuenta_nueva,name='cuenta_nueva'),
+    url(r'^nuevacuenta/$',views.cuenta_nueva,name='cuenta_nueva'),
 ]
