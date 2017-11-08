@@ -23,7 +23,8 @@ def cuenta_nueva(request):
             for tipocuenta_id in request.POST.getlist('cajas'):
                 cajadiaria=CajaDiaria(tipocuenta_id=tipocuenta_id,cuenta_id=cuenta.id)
                 cajadiaria.save()
-            messages.add_message(request,messages.SUCCESS,'Cuenta agregada exitosamente')
+                return redirect('detallecaja',pk=cajadiaria.pk)
+
     else:
         formulario=CuentaForm();
     return render(request,'cajadiaria/cuenta_editar.html',{'formulario':formulario})

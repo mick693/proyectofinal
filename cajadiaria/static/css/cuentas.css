@@ -2,6 +2,7 @@ h1 a{
   color: #F0F8FF;
   font-family: 'Lobster';
 }
+
 body{
   padding-left: 15px;
 }
@@ -21,8 +22,20 @@ body{
         margin-left: 40px;
     }
 
-    h1, h2, h3, h4 {
+    h1, h4 {
         font-family: 'Lobster', cursive;
+    }
+    h2{
+      font-family: 'Lobster';
+      font-size: 200%;
+
+    }
+    h3{
+      font-family: 'Lobster', monospace;
+
+    }
+    td{
+      font-size: 70%;
     }
 
     .date {
